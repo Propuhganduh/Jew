@@ -5,9 +5,10 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/cool guy/;  botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;botRegexYub = /^\/yubnub/
-      botRegexAd=/^\/advance/;botRegexGTA = /^\/gta/; botRegexSC = /^\/SDL/i; botRegexUs = /^\/users/ ;  
-      botRegexP = /^\/PDL/i;  botRegexTw = /^\/twitch/i; botRegexSb = /^\/sub/
+      botRegex = /^\/cool guy/;  botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;botRegexBan = /^\/ban/
+      botRegexAd=/^\/advance/;botRegexShrug = /^\/shrug/; botRegexSC = /^\/SDL/i;
+      botRegexP = /^\/PDL/i;  botRegexDg = /^\/doge/i; botRegexCjw = /^\/JEW/; botRegexJw = /^\/Jew/;
+      botRegexJew = /^\/jew/; botRegexJoo = /^\/joo/;
   var teamAb = ["NE","NO","ARI","PHI","CLE","TEN","OAK","DAL","IND","SEA","CIN","PIT","JAC"
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
                 "MIA","BUF","SF","WAS","NYJ","TB"]
@@ -18,57 +19,66 @@ function respond() {
   } 
   else if(request.text && botRegexDL.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("http://daddyleagues.com/MaddenCL/team/"+request.text.substring(5,8)+"/depthchart");
+    postMessage("");
     this.res.end();
   } 
   else if(request.text && botRegexSalt.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("http://i.imgur.com/q3ohLtD.gif");
+    postMessage("");
     this.res.end();
   } 
   else if(request.text && botRegexAd.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("http://www.kno.com/images/store/knoadvance/overview.png");
+    postMessage("");
     this.res.end();
   }
-  else if(request.text && botRegexYub.test(request.text)) {
+  else if(request.text && botRegexBan.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("http://www.quickmeme.com/img/9f/9f3720469d1ce6c2d20130ed0750935a394df80ffcddec6d16e091d95efea854.jpg");
+    postMessage("");
     this.res.end();
   } 
-  else if(request.text && botRegexGTA.test(request.text)) {
+  else if(request.text && botRegexShrug.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("https://i.groupme.com/220x147.jpeg.a2dd2add32b14fff9e329535186d793c.large");
+    postMessage("");
     this.res.end();
   } 
   else if(request.text && botRegexSC.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("http://daddyleagues.com/MaddenCl/team/"+request.text.substring(5,8)+"/schedule");
+    postMessage("");
     this.res.end();
   }
   else if(request.text && botRegexP.test(request.text)) {
     this.res.writeHead(200);
     var req = request.text.substring(5,request.text.length);
     var rep = req.replace(/ /,"+");
-    postMessage("http://daddyleagues.com/MaddenCl/players?name="+rep+"&position=all&team=all");
+    postMessage("");
     this.res.end();
   } 
-
-  else if(request.text && botRegexTw.test(request.text)) {
+  else if(request.text && botRegexDg.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("http://www.twitch.tv/"+request.text.substring(8,request.text.length));
+    postMessage("http://i.groupme.com/307x362.gif.357292f527ad49a38da4e13201fbfa77.large");
     this.res.end();
   } 
-  else if(request.text && botRegexSb.test(request.text)) {
+  else if(request.text && botRegexCjw.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("http://www.reddit.com/r/maddencl");
+    postMessage("http://i.groupme.com/307x362.gif.357292f527ad49a38da4e13201fbfa77.large");
     this.res.end();
-  } 
-  else if(request.text && botRegexUs.test(request.text)) {
+  }
+  else if(request.text && botRegexJw.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("http://docs.google.com/spreadsheets/d/1byoEROZXIsl-eRbOxN7PDErjw68kt9ZVnrjoeUnV500/edit#gid=0");
+    postMessage("http://i.groupme.com/307x362.gif.357292f527ad49a38da4e13201fbfa77.large");
     this.res.end();
-  } 
+  }
+  else if(request.text && botRegexJew.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("http://i.groupme.com/307x362.gif.357292f527ad49a38da4e13201fbfa77.large");
+    this.res.end();
+  }
+  else if(request.text && botRegexJoo.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("http://i.groupme.com/720x526.jpeg.87c35e3533ee4c8a99d49a3cd8390c29.large");
+    this.res.end();
+  }
   else {
     console.log("don't care");
     this.res.writeHead(200);
